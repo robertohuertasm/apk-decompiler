@@ -10,7 +10,7 @@ use std::path::PathBuf;
 
 fn main() {
     let matches = App::new("apk decompiler")
-        .version("0.1.0")
+        .version("0.2.0")
         .about("A super simple utility to decompile your APKs.")
         .author("Roberto Huertas <roberto.huertas@outlook.com>")
         .arg(
