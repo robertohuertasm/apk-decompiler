@@ -38,7 +38,7 @@ impl Decompiler {
             .green()
         );
         self.create_output()?;
-        // self.unzip()?;
+        self.unzip()?;
         self.create_jar()?;
         self.decompile_jar()?;
         self.extract_xml()?;
@@ -165,8 +165,7 @@ impl Decompiler {
     fn decompile_jar(&self) -> Result<()> {
         self.msg("  Decompiling jar file...");
         let jar_file = self.output_path.join("app.jar");
-        Command::new("sh")
-            .arg(self.exe_dir.join("lib/jd/jd-cli"))
+        Command::new(self.exe_dir.join("lib/jd/jd-cli"))
             .arg("-od")
             .arg(self.output_path.join("decompiled"))
             .arg(&jar_file)

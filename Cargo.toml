@@ -1,12 +1,12 @@
 [package]
 name = "apk-decompiler"
 description = "Small utility to decompile apks"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Roberto Huertas <roberto.huertas@outlook.com>"]
 edition = "2018"
 license = "MIT"
-keywords = ["apk", "decompiler"]
-categories = ["network-programming"]
+keywords = ["apk", "decompiler", "android"]
+categories = ["development-tools"]
 
 [badges]
 maintenance = { status = "actively-developed" }
