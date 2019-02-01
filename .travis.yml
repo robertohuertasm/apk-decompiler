@@ -14,11 +14,11 @@ script:
   - cargo clippy --all -- -D clippy::pedantic
   - cargo build --release
   - chmod +x target/release/apk-decompiler
-  - mkdir output
-  - mv target/release/apk-decompiler output/apk-decompiler
-  - mv lib output/lib
+  - mkdir apk-decompiler
+  - mv target/release/apk-decompiler apk-decompiler/apk-decompiler
+  - mv lib apk-decompiler/lib
   # - gzip -k -f output
-  - tar -zcvf apk-decompiler.tar.gz output/
+  - tar -zcvf apk-decompiler.tar.gz apk-decompiler/
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then mv apk-decompiler.tar.gz apk_decompiler_linux.tar.gz ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mv apk-decompiler.tar.gz apk_decompiler_osx.tar.gz ; fi
 
