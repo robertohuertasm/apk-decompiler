@@ -1,0 +1,21 @@
+[package]
+name = "apk-decompiler"
+description = "Small utility to decompile apks"
+version = "0.1.0"
+authors = ["Roberto Huertas <roberto.huertas@outlook.com>"]
+edition = "2018"
+license = "MIT"
+keywords = ["apk", "decompiler"]
+categories = ["network-programming"]
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+clap = "2.32.0"
+console = "0.7.5"
+zip = "0.5.0"
+
+[build-dependencies]
+fs_extra = "1.1"
+

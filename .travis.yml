@@ -1,0 +1,32 @@
+language: rust
+rust:
+  - stable
+os:
+  - linux
+  - osx
+matrix:
+  fast_finish: true
+before_script:
+  - rustup component add rustfmt-preview
+  - rustup component add clippy-preview
+script:
+  - cargo fmt --all -- --check
+  - cargo clippy --all -- -D clippy::pedantic
+  - cargo build --release
+  - chmod +x target/release/apk_decompiler
+  - mkdir output
+  - mv target/release/apk_decompiler output/apk_decompiler
+  - mv lib output/lib
+  - gzip -k -f output
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then mv output/apk_decompiler.gz apk_decompiler.gz ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mv output/microserver.gz apk_decompiler.gz ; fi
+
+deploy:
+  provider: releases
+  api_key: $gh_key
+  file:
+    - apk_decompiler_linux.gz
+    - apk_decompiler_osx.gz
+  skip_cleanup: true
+  on:
+    tags: true
