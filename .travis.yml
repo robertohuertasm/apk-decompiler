@@ -17,16 +17,17 @@ script:
   - mkdir output
   - mv target/release/apk-decompiler output/apk-decompiler
   - mv lib output/lib
-  - gzip -k -f output
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then mv output/apk-decompiler.gz apk_decompiler_linux.gz ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mv output/apk-decompiler.gz apk_decompiler_osx.gz ; fi
+  # - gzip -k -f output
+  - tar -zcvf apk-decompiler.tar.gz output/
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then mv apk-decompiler.tar.gz apk_decompiler_linux.tar.gz ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mv apk-decompiler.tar.gz apk_decompiler_osx.tar.gz ; fi
 
 deploy:
   provider: releases
   api_key: $gh_key
   file:
-    - apk_decompiler_linux.gz
-    - apk_decompiler_osx.gz
+    - apk_decompiler_linux.tar.gz
+    - apk_decompiler_osx.tar.gz
   skip_cleanup: true
   on:
     tags: true
