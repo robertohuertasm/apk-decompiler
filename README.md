@@ -1,4 +1,4 @@
-# apk_decompiler
+# apk-decompiler
 
 [![Build Status](https://travis-ci.org/robertohuertasm/apk-decompiler.svg?branch=master)](https://travis-ci.org/robertohuertasm/apk-decompiler)
 
