@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-#![allow(unused_variables)]
-
 mod decompiler;
 
 use crate::decompiler::Decompiler;
