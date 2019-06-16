@@ -100,7 +100,7 @@ impl Decompiler {
                     i,
                     outpath.as_path().display()
                 );
-                self.extract_msg(&msg);
+                self.extract_msg(msg.as_str());
                 fs::create_dir_all(&outpath)?;
             } else {
                 let msg = format!(
@@ -109,7 +109,7 @@ impl Decompiler {
                     outpath.as_path().display(),
                     file.size()
                 );
-                self.extract_msg(&msg);
+                self.extract_msg(msg.as_str());
                 if let Some(p) = outpath.parent() {
                     if !p.exists() {
                         fs::create_dir_all(&p)?;
