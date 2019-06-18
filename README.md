@@ -17,6 +17,8 @@ Once you're there, if you want to list the packages installed in your device:
 ```sh
 pm list packages
 # or if you're looking for something specific
+pm list packages -f instagram
+# or
 pm list packages | awk -F':' '{print $2}' | grep instagram
 ```
 
