@@ -37,6 +37,8 @@ In order to extract a package we'll use `adb` again:
 adb pull <path-to-the-package>
 ```
 
+This will extract the package into your current folder, normally with the following name: `base.apk`.
+
 ## How to use it
 
 Just execute:
